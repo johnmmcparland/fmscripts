@@ -1,16 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Rename config.xml files under graphics/TCMLogos so the game ignores them.
+# Run restoreGraphicConfigs.sh to restore them.
+set -u
 
-# This script finds every config.xml file under the current directory
-# and renames it to backup_config_xml in the same directory.
-# See also restoreGraphicConfigs.sh
-
-
-# Main Directories
 GRAPHICS_DIR="graphics/TCMLogos"
+if [[ ! -d "$GRAPHICS_DIR" ]]; then
+    echo "ERROR: Directory not found: $GRAPHICS_DIR" >&2
+    exit 1
+fi
 
-find "${GRAPHICS_DIR}" -type f -name "config.xml" -exec sh -c '
-for file do
-    dir=$(dirname "$file")
-    mv "$file" "$dir/backup_config_xml"
+find "$GRAPHICS_DIR" -type f -name config.xml -print0 |
+while IFS= read -r -d '' file; do
+    backup="$(dirname "$file")/backup_config_xml"
+    if [[ -e "$backup" ]]; then
+        echo "WARNING: Backup already exists; leaving $file unchanged" >&2
+        continue
+    fi
+    mv -- "$file" "$backup" || exit 1
 done
-' sh {} +
