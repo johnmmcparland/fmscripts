@@ -1,0 +1,87 @@
+FM 26 Console Directories
+=========================
+
+Installation
+------------
+C:\XboxGames\Football Manager 26 Console
+
+UI Assets:
+C:\XboxGames\Football Manager 26 Console\Content\fm_Data\StreamingAssets\aa\StandaloneWindows64
+
+Game Data - Graphics etc
+------------------------
+%USERPROFILE%\Documents\Sports Interactive\Football Manager 26 Console
+
+Cloud Data - Save Games
+-----------------------
+%LOCALAPPDATA%\Sports Interactive\Football Manager 26 Console
+
+%LOCALAPPDATA%\Sports Interactive\Football Manager 26 Console\Temporary
+  *.fmt - saved games
+
+Temporary is cleared when the game safely exits.
+
+%LOCALAPPDATA%\Sports Interactive\Football Manager 26 Console\Temporary\add_ons\tactics
+Genuinely has the tactics and these load/save fine
+
+%LOCALAPPDATA%\Sports Interactive\Football Manager 26 Console\Temporary\add_ons\views
+Has views - appears to be the old set
+
+%LOCALAPPDATA%\Sports Interactive\Football Manager 26 Console\Temporary\add_ons\filters
+Has filters - albeit they constantly appear broken (currently has "433 Geg")
+
+Temporary is 170MB
+Pretty much the *.fmt file is the main one - 83.1MB
+  
+Cloud Data - Binaries and Views
+-------------------------------
+%LOCALAPPDATA%low\Sports Interactive\Football Manager 26 Console
+
+Contains some log and config files (e.g., Player.txt)
+
+This persists between games
+
+backtrace\crashpad\reports
+
+All dumps of the files now
+
+After a game is loaded, and a view attempted to be loaded:
+
+C:\Users\%USER%\AppData\LocalLow\Sports Interactive\Football Manager 26 Console\
+
+All folders within this, excluding "com.unity.addressables" and "backtrace" seem to contain the files
+
+C:\Users\%USER%\AppData\LocalLow\Sports Interactive\Football Manager 26 Console\FirstTeamSquadAndYouthTeamSquadCollection
+This has my views in it - most recent set
+
+New Backup Strategy Option
+--------------------------
+Create a folder outside of FM 26 Console in Documents
+Copy each of the following
+ 
+%LOCALAPPDATA%Low\Sports Interactive\Football Manager 26 Console 
+to
+%USERPROFILE%\Documents\Sports Interactive\FMBackups\Football Manager 26 Console\LocalLow\
+
+and
+
+C:\Users\%USERNAME%\AppData\Local\Sports Interactive\Football Manager 26 Console\Temporary
+to 
+%USERPROFILE%\Documents\Sports Interactive\FMBackups\Football Manager 26 Console\Local\
+
+The rationale being it should let me backup everything that's needed, while keeping the main dir free
+
+Fix Current Problem Option
+--------------------------
+Backup all files in current strategy [done]
+Backup Local and LocalLow folders to desktop [done]
+
+Save/close game [done]
+Remove all the files you've said you will 
+Re-organise [done]
+
+https://support.sega.com/hc/en-gb/articles/29425337798673-How-to-remove-caches-and-or-preferences-folders-in-Football-Manager
+- Delete C:\Users\%USERNAME%\AppData\Local\Sports Interactive\Football Manager 26 Console\Preferences
+- Delete C:\Users\%USERNAME%\AppData\Local\Sports Interactive\Football Manager 26 Console\Cache
+
+It sounds like the real problem needed a hotfix
