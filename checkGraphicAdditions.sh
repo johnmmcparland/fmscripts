@@ -1,46 +1,34 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Check whether personal face and logo additions already exist in downloaded packs.
+set -u
 
-# Constants
 GAME_NAME="FMBackups"
+GRAPHICS_DIR="${USERPROFILE:?USERPROFILE is not set}/Documents/Sports Interactive/$GAME_NAME/graphics"
+CUTOUT_FACES_DIR="$GRAPHICS_DIR/CutoutFaces"
+MY_FACES_DIR="$GRAPHICS_DIR/MyFaces"
+DF11_PURE_FACES="$GRAPHICS_DIR/DF11PureMegapackWomen"
+METALLIC_LOGOS_DIR="$GRAPHICS_DIR/MetallicLogos"
+MY_LOGOS="$GRAPHICS_DIR/MyLogos"
 
-# Main Directories
-GRAPHICS_DIR="${USERPROFILE}/Documents/Sports Interactive/${GAME_NAME}/graphics"
+check_files() {
+    local source=$1 label=$2
+    shift 2
+    if [[ ! -d "$source" ]]; then
+        echo "WARNING: Directory not found: $source" >&2
+        return
+    fi
+    local file
+    while IFS= read -r -d '' file; do
+        local name
+        name=$(basename "$file")
+        echo "Checking $label $name"
+        for target in "$@"; do
+            if [[ -f "$target/$name" ]]; then
+                echo "  Hit: $target/$name"
+            fi
+        done
+    done < <(find "$source" -maxdepth 1 -type f -iname '*.png' -print0)
+}
 
-### Directories
-## Faces
-# Sortitoutsi Cut Out Faces Megapack
-export CUTOUT_FACES_DIR=${GRAPHICS_DIR}/CutoutFaces
-# My own faces that I need to add
-export MY_FACES_DIR="${GRAPHICS_DIR}/MyFaces"
-# DF11 Pure Faces (Womens)
-export DF11_PURE_FACES=${GRAPHICS_DIR}/DF11PureMegapackWomen
-
-## Logos
-# Sortitoutsi Metallic Logos Megapack
-export METALLIC_LOGOS_DIR=${GRAPHICS_DIR}/MetallicLogos
-# My Logos
-export MY_LOGOS=${GRAPHICS_DIR}/MyLogos
-
-# Check for clashes in MyFaces 
-for FILE in `ls "${MY_FACES_DIR}" | grep png`;do
-    echo "Checking Face $FILE"
-    if [[ -f ${CUTOUT_FACES_DIR}/faces/face_${FILE} ]];then
-	    echo "Cutout Hit: Addition of ${FILE} is not required!"
-	fi
-	
-	# There are still some faces 
-	if [[ -f ${DF11_PURE_FACES}/${FILE} ]];then
-	    echo "DF11Pure Hit: Addition of ${FILE} is not required!"
-	fi
-done;
-
-# Check for clashes in MyLogos 
-for FILE in `ls "${MY_LOGOS}" | grep png`;do
-    echo "Checking Logo $FILE"
-    if [[ -f ${METALLIC_LOGOS_DIR}/logos/clubs/normal/${FILE} ]];then
-	    echo "Metallic 'logos/clubs/normal' Hit: Addition of ${FILE} is not required!"
-	fi
-	if [[ -f ${METALLIC_LOGOS_DIR}/logos/${FILE} ]];then
-	    echo "Metallic 'logos' Hit: Addition of ${FILE} is not required!"
-	fi
-done;
+check_files "$MY_FACES_DIR" Face "$CUTOUT_FACES_DIR/faces" "$DF11_PURE_FACES"
+check_files "$MY_LOGOS" Logo "$METALLIC_LOGOS_DIR/logos/clubs/normal" "$METALLIC_LOGOS_DIR/logos"
