@@ -3,3 +3,5 @@ graphics
 duplicates
 RealNames
 GraphicDownloads.ods
+*.csv
+.~lock*
