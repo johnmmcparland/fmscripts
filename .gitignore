@@ -4,4 +4,6 @@ duplicates
 RealNames
 GraphicDownloads.ods
 *.csv
+*.ods
+*.xls
 .~lock*
