@@ -1,9 +1,9 @@
 @echo off
 :: (c) Sports Interactive Ltd.
-:: Small modifications by John McParland for Football Manager 26 Console.
+:: Small modifications by John McParland for Football Manager 27
 setlocal
 
-set "GameVersion=Football Manager 26 Console"
+set "GameVersion=Football Manager 27"
 set "TempPath=%TEMP%\FM_SettingsBackup"
 set "DestPath=%USERPROFILE%\Documents\Sports Interactive\%GameVersion%\crash dumps"
 set "ZipPath=%DestPath%\FM_SettingsBackup.zip"
