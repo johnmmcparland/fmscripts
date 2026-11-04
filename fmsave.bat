@@ -1,8 +1,8 @@
 @echo off
 setlocal
 
-set "SAVE_DIR=%LOCALAPPDATA%\Sports Interactive\Football Manager 26 Console\Temporary"
-set "SAVE=%SAVE_DIR%\*.fmt"
+set "SAVE_DIR=%USERPROFILE%\Documents\Sports Interactive\Football Manager 27\games"
+set "SAVE=%SAVE_DIR%\John McParland - Celtic.fm"
 set "ATTRIBUTES_CSV_FILE=%CD%\fmsave_attributes.csv"
 set "STATS_CSV_FILE=%CD%\fmsave_stats.csv"
 
@@ -37,7 +37,6 @@ py -m fmsave export "%SAVE%" players --managed-club ^
 attributes_crossing,attributes_dribbling,attributes_finishing,^
 attributes_first_touch,attributes_heading,attributes_long_shots,attributes_marking,^
 attributes_passing,attributes_tackling,attributes_technique,^
-attributes_corners,attributes_free_kick_taking,attributes_long_throws,attributes_penalty_taking,^
 attributes_aggression,attributes_anticipation,attributes_bravery,attributes_composure,^
 attributes_concentration,attributes_decisions,attributes_determination,^
 attributes_flair,attributes_leadership,attributes_off_the_ball,attributes_positioning,^
