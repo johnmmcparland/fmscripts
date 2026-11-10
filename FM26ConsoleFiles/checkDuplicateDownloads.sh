@@ -81,5 +81,3 @@ wc -l ${DUPLICATE_ICONS}
 echo ""
 
 echo "Run FM Graphics Configurator v1.2 on DF11 now"
-
-# French Club Logos

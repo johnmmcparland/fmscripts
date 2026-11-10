@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Rename config.xml files under graphics/TCMLogos so the game ignores them.
+# Rename config.xml files under graphics/ so the game ignores them.
 # Run restoreGraphicConfigs.sh to restore them.
 set -u
 
-GRAPHICS_DIR="graphics/TCMLogos"
+GRAPHICS_DIR="graphics/"
 if [[ ! -d "$GRAPHICS_DIR" ]]; then
     echo "ERROR: Directory not found: $GRAPHICS_DIR" >&2
     exit 1

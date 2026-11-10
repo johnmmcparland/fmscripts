@@ -2,7 +2,7 @@
 # Restore config.xml files previously renamed by disableGraphicConfigs.sh.
 set -u
 
-GRAPHICS_DIR="graphics/TCMLogos"
+GRAPHICS_DIR="graphics/"
 if [[ ! -d "$GRAPHICS_DIR" ]]; then
     echo "ERROR: Directory not found: $GRAPHICS_DIR" >&2
     exit 1

@@ -11,9 +11,7 @@ GRAPHICS_DIR="graphics"
 directories=(
     "$GRAPHICS_DIR/CutoutFaces"
     "$GRAPHICS_DIR/CutoutFaces/MyFaces"
-    "$GRAPHICS_DIR/DF11PureMegapackWomen"
     "$GRAPHICS_DIR/MetallicLogos"
-    "$GRAPHICS_DIR/TCMLogos/Women"
     "$GRAPHICS_DIR/MyLogos"
 )
 for directory in "${directories[@]}"; do
