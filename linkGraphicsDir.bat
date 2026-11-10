@@ -1,4 +1,4 @@
-:: Run in the FM Game Directory, e.g., "Football Manager 26 Console"
+:: Run in the FM Game Directory, e.g., "Football Manager 27"
 :: /J is directory Junction
 :: First argument is the link name, Second is the target
 :: https://sortitoutsi.net/content/61273/how-to-reuse-graphic-packs-across-multiple-versions-of-football-manager-using-symlinks

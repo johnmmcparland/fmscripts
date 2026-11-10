@@ -6,7 +6,6 @@ GAME_NAME="FMBackups"
 GRAPHICS_DIR="${USERPROFILE:?USERPROFILE is not set}/Documents/Sports Interactive/$GAME_NAME/graphics"
 CUTOUT_FACES_DIR="$GRAPHICS_DIR/CutoutFaces"
 MY_FACES_DIR="$GRAPHICS_DIR/MyFaces"
-DF11_PURE_FACES="$GRAPHICS_DIR/DF11PureMegapackWomen"
 METALLIC_LOGOS_DIR="$GRAPHICS_DIR/MetallicLogos"
 MY_LOGOS="$GRAPHICS_DIR/MyLogos"
 
@@ -30,5 +29,5 @@ check_files() {
     done < <(find "$source" -maxdepth 1 -type f -iname '*.png' -print0)
 }
 
-check_files "$MY_FACES_DIR" Face "$CUTOUT_FACES_DIR/faces" "$DF11_PURE_FACES"
+check_files "$MY_FACES_DIR" Face "$CUTOUT_FACES_DIR/faces"
 check_files "$MY_LOGOS" Logo "$METALLIC_LOGOS_DIR/logos/clubs/normal" "$METALLIC_LOGOS_DIR/logos"
